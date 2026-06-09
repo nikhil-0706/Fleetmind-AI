@@ -1,10 +1,9 @@
 from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
 
-import models
-import schemas
-from database import engine, get_db
-from service import truck_service
+from truck_agent import models, schemas
+from truck_agent.database import engine, get_db
+from truck_agent.service import truck_service
 
 models.Base.metadata.create_all(bind=engine)
 

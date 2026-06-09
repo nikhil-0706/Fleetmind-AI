@@ -1,6 +1,5 @@
 from sqlalchemy.orm import Session
-import models
-import schemas
+from truck_agent import models, schemas
 
 
 class TruckService:
