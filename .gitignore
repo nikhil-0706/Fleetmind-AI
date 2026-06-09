@@ -1,0 +1,28 @@
+# Python:
+__pycache__/
+*.pyc
+
+# Database
+truck_agent.db
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+node_modules/
+.env
+.vscode/
+npm-debug.log
+
+# Node
+node_modules/
+
+# Environment
+.env
