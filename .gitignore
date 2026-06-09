@@ -1,4 +1,4 @@
-# Python
+# Python:
 __pycache__/
 *.pyc
 
@@ -16,3 +16,13 @@ env/
 # OS files
 .DS_Store
 Thumbs.db
+node_modules/
+.env
+.vscode/
+npm-debug.log
+
+# Node
+node_modules/
+
+# Environment
+.env
