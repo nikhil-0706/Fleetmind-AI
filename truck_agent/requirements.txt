@@ -1,5 +1,10 @@
 fastapi
 uvicorn
+<<<<<<< HEAD
 pydantic
 requests
 python-dotenv
+=======
+sqlalchemy
+pydantic
+>>>>>>> 6a11834514b2ea37f944e4572035c48da0a802f1
