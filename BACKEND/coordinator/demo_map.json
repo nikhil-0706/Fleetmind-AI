@@ -1,0 +1,28 @@
+{
+  "nodes": [
+    { "node_id": "N1", "x": 0, "y": 0, "is_warehouse": true },
+    { "node_id": "N2", "x": 50, "y": 30, "is_warehouse": false },
+    { "node_id": "N3", "x": 100, "y": 60, "is_warehouse": true },
+    { "node_id": "N4", "x": 120, "y": 20, "is_warehouse": true },
+    { "node_id": "N5", "x": 80, "y": 90, "is_warehouse": false },
+    { "node_id": "N6", "x": 150, "y": 120, "is_warehouse": true },
+    { "node_id": "N7", "x": 200, "y": 100, "is_warehouse": false },
+    { "node_id": "N8", "x": 250, "y": 140, "is_warehouse": true },
+    { "node_id": "N9", "x": 300, "y": 180, "is_warehouse": false },
+    { "node_id": "N10", "x": 180, "y": 200, "is_warehouse": false }
+  ],
+  "edges": [
+    { "edge_id": "E1", "from_node": "N1", "to_node": "N2", "distance_km": 50, "speed_kmph": 50 },
+    { "edge_id": "E2", "from_node": "N2", "to_node": "N3", "distance_km": 60, "speed_kmph": 50 },
+    { "edge_id": "E3", "from_node": "N2", "to_node": "N4", "distance_km": 70, "speed_kmph": 50 },
+    { "edge_id": "E4", "from_node": "N3", "to_node": "N5", "distance_km": 40, "speed_kmph": 50 },
+    { "edge_id": "E5", "from_node": "N4", "to_node": "N10", "distance_km": 35, "speed_kmph": 50 },
+    { "edge_id": "E6", "from_node": "N5", "to_node": "N6", "distance_km": 55, "speed_kmph": 50 },
+    { "edge_id": "E7", "from_node": "N6", "to_node": "N7", "distance_km": 65, "speed_kmph": 50 },
+    { "edge_id": "E8", "from_node": "N7", "to_node": "N8", "distance_km": 45, "speed_kmph": 50 },
+    { "edge_id": "E9", "from_node": "N8", "to_node": "N9", "distance_km": 60, "speed_kmph": 50 },
+    { "edge_id": "E10", "from_node": "N7", "to_node": "N10", "distance_km": 50, "speed_kmph": 50 },
+    { "edge_id": "E11", "from_node": "N9", "to_node": "N8", "distance_km": 60, "speed_kmph": 50 },
+    { "edge_id": "E12", "from_node": "N10", "to_node": "N6", "distance_km": 40, "speed_kmph": 50 }
+  ]
+}

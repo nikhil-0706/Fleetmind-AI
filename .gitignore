@@ -1,4 +1,14 @@
+
 node_modules/
 dist/
 build/
 .env
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+env/
+.idea/
+.vscode/
