@@ -1,0 +1,110 @@
+fleetmind-v2/
+├── backend/
+│   ├── app/
+│   │   ├── __init__.py
+│   │   ├── main.py                     # Entry point (Uvicorn), includes CORS, routers
+│   │   ├── core/
+│   │   │   ├── __init__.py
+│   │   │   ├── config.py               # Ports, constants, global settings
+│   │   │   ├── database.py             # In-memory DB (dicts) - centralized here
+│   │   │   └── graph.py                # Map loading, distance matrix, node/edge logic
+│   │   ├── models/
+│   │   │   ├── __init__.py
+│   │   │   ├── domain.py               # Truck, Load, Warehouse, Proposal, Pair, Earnings, User
+│   │   │   └── requests.py             # Pydantic models for API requests/responses
+│   │   ├── services/                   # Business logic layer (replacing agents or integrating them)
+│   │   │   ├── __init__.py
+│   │   │   ├── truck_service.py        # Logic for truck registration, status, sessions
+│   │   │   ├── load_service.py         # Load registration, status
+│   │   │   ├── warehouse_service.py    # Warehouse operations, docks, scheduling
+│   │   │   ├── matching_service.py     # Matching algorithm (calls scoring utils)
+│   │   │   ├── backhaul_service.py     # Next action planning
+│   │   │   └── scoring_utils.py        # Utility scores (moved from agents)
+│   │   ├── api/                        # Routers (FastAPI APIRouter)
+│   │   │   ├── __init__.py
+│   │   │   ├── auth.py                 # Register/Login (returns role/id, NO TOKEN)
+│   │   │   ├── driver.py               # /driver, /truck, proposals, sessions, depart/arrive
+│   │   │   ├── shipper.py              # /shipper, /load, history, analytics
+│   │   │   ├── warehouse.py            # /warehouse, docks, schedule
+│   │   │   └── admin.py                # /admin, system state, config, logs
+│   │   └── utils/
+│   │       ├── __init__.py
+│   │       ├── logger.py               # Logging setup
+│   │       └── helpers.py              # ID generators, date utils
+│   ├── scripts/
+│   │   └── generate_map.py             # Generates data/map_data.json
+│   ├── data/
+│   │   └── map_data.json               # Auto-generated
+│   ├── requirements.txt
+│   └── README.md
+│
+└── frontend/
+    ├── public/
+    │   └── index.html
+    ├── src/
+    │   ├── assets/                     # Images, icons
+    │   ├── components/
+    │   │   ├── layout/
+    │   │   │   ├── Layout.jsx          # Sidebar, header, logout
+    │   │   │   └── PrivateRoute.jsx    # Role guard (no token check)
+    │   │   ├── common/
+    │   │   │   ├── StatCard.jsx
+    │   │   │   ├── StatusBadge.jsx
+    │   │   │   ├── ExportButton.jsx
+    │   │   │   └── LoadingSpinner.jsx
+    │   │   └── map/
+    │   │       ├── MapVisualizer.jsx   # Central map component (Leaflet)
+    │   │       └── MapUtils.js         # Distance calc, bounds helpers
+    │   ├── context/
+    │   │   └── AppContext.jsx          # Auth state, user role, user ID, TRUCK CACHE
+    │   ├── pages/
+    │   │   ├── RoleSelection.jsx
+    │   │   ├── LoginRegister.jsx       # No token stored
+    │   │   ├── driver/
+    │   │   │   ├── Dashboard.jsx       # Shows truck, pending, map (truck + nearby loads + wh)
+    │   │   │   ├── RegisterTruck.jsx
+    │   │   │   ├── SessionManager.jsx
+    │   │   │   ├── Proposals.jsx
+    │   │   │   ├── RouteViewer.jsx     # Uses next_action properly
+    │   │   │   └── Earnings.jsx
+    │   │   ├── shipper/
+    │   │   │   ├── Dashboard.jsx       # Shows all WH on map
+    │   │   │   ├── RegisterLoad.jsx
+    │   │   │   ├── LoadsDatabase.jsx
+    │   │   │   ├── History.jsx
+    │   │   │   └── Analytics.jsx
+    │   │   ├── warehouse/
+    │   │   │   ├── Dashboard.jsx       # Shows only its WH on map
+    │   │   │   ├── WarehouseDetails.jsx
+    │   │   │   ├── DockSchedule.jsx
+    │   │   │   ├── Loads.jsx
+    │   │   │   └── History.jsx
+    │   │   └── admin/
+    │   │       ├── Dashboard.jsx
+    │   │       ├── SystemState/
+    │   │       │   ├── Trucks.jsx
+    │   │       │   ├── Loads.jsx
+    │   │       │   ├── Warehouses.jsx
+    │   │       │   ├── Pairs.jsx
+    │   │       │   ├── TruckRevenue.jsx
+    │   │       │   ├── Proposals.jsx
+    │   │       │   ├── LogsNotifications.jsx
+    │   │       │   └── UserAccounts.jsx
+    │   │       ├── AgentStatus.jsx
+    │   │       └── Configuration.jsx
+    │   ├── services/
+    │   │   ├── api.js                  # Axios instance (NO interceptors)
+    │   │   └── auth.js                 # Login/Register functions (stores user only)
+    │   ├── hooks/
+    │   │   ├── useApi.js               # Custom hook for fetching with loading/error
+    │   │   └── usePolling.js           # Custom hook for polling intervals
+    │   ├── utils/
+    │   │   ├── helpers.js
+    │   │   └── constants.js
+    │   ├── App.js
+    │   ├── index.js
+    │   └── index.css                   # Tailwind
+    ├── package.json
+    ├── tailwind.config.js
+    ├── postcss.config.js
+    └── README.md
