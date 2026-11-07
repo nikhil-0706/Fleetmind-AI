@@ -1,0 +1,15 @@
+# Netlify Configuration for FleetMind
+[build]
+  base = "Fleetmind 10.0 FINAL/frontend"
+  publish = "build"
+  command = "npm run build"
+
+[build.environment]
+  CI = "false"
+  NODE_VERSION = "18"
+
+# Fallback rule for React Single Page Application routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
